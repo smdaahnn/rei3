@@ -1,0 +1,291 @@
+.calendar{
+	flex:1 1 auto;
+	display:flex;
+	flex-flow:column nowrap;
+	box-shadow:1px 1px 4px var(--color-shade);
+	overflow:auto;
+}
+.calendar .form-wrap.popUp{
+	flex:1 1 auto;
+	width:100%;
+}
+.calendar .zoomSlider{
+	width:80px !important;
+}
+.calendar-content{
+	flex:1 1 auto;
+	display:flex;
+	flex-flow:row nowrap;
+	overflow:auto;
+}
+
+/* selector */
+.calendar-select .date-input{
+	width:auto;
+	min-width:unset;
+	text-align:center;
+}
+.calendar-select .date-input.short{
+	width:42px;
+}
+.calendar-select .date-input.medium{
+	width:60px;
+}
+
+/* days view */
+.calendar-days{
+	flex:1 1 auto;
+	display:flex;
+	flex-flow:column nowrap;
+}
+.calendar-days.scroll{
+	overflow:auto;
+}
+.calendar-days .labels{
+	width:60px;
+	display:flex;
+	flex-flow:column nowrap;
+}
+.calendar-days .labels span{
+	padding:2px 6px;
+	box-sizing:border-box;
+	text-align:right;
+	flex:0 0 auto;
+	background-color:var(--color-bg);
+	border-bottom:1px dotted var(--color-border);
+}
+.calendar-days .labels.fullDay span{
+	overflow:hidden;
+	border-bottom:none;
+}
+.calendar-days .days{
+	flex:1 1 auto;
+	display:flex;
+	flex-flow:row nowrap;
+	border-bottom:1px solid var(--color-border);
+	background-color:var(--color-input);
+}
+.calendar-days .days.full{
+	flex:0 0 auto;
+	border-bottom:2px solid var(--color-border);
+	position:sticky;
+	top:0px;
+	z-index:var(--z-index-calendar-days-full-days);
+}
+.calendar-days .day{
+	flex:1 1 0px;
+	position:relative;
+	border-left:1px solid var(--color-border);
+	display:flex;
+	flex-flow:column nowrap;
+}
+.calendar-days .day.weekend{
+	background-color:var(--color-accent2);
+}
+.calendar-days .header{
+	flex:1 1 auto;
+	min-height:30px;
+	text-align:center;
+	line-height:30px;
+	background-color:var(--color-bg);
+	border-bottom:1px solid var(--color-border);
+}
+.calendar-days .events-full{
+	flex:0 0 auto;
+	position:relative;
+}
+.calendar-days .eventWrap{
+	position:absolute;
+	display:flex;
+	flex-flow:column nowrap;
+}
+.calendar-days .eventWrap.full{
+	z-index:var(--z-index-calendar-days-full-day);
+}
+.calendar-days .event{
+	flex:1 1 auto;
+	margin:2px;
+	padding:3px 5px;
+	border-radius:5px;
+	overflow:hidden;
+	background:yellow;
+	background-color:var(--color-accent3);
+	box-shadow:1px 1px 1px var(--color-shade);
+	display:flex;
+	flex-flow:column nowrap;
+	gap:5px;
+}
+.calendar-days .event.clickable:hover,
+.calendar-days .event.clickable:focus{
+	filter:grayscale(5%) brightness(95%);
+	border-left:2px solid var(--color-border);
+}
+.calendar-days .event.clickable:active{
+	margin:3px;
+}
+.calendar-days .dayInput{
+	height:100%;
+}
+.calendar-days .dayInput,
+.calendar-days .hourInput{
+	opacity:0.9;
+	box-sizing:border-box;
+	border-bottom:1px dotted var(--color-border);
+}
+.calendar-days .dayInput.clickable.active,
+.calendar-days .hourInput.clickable.active{
+	background-color:var(--color-input);
+	filter:brightness(80%);
+}
+.calendar-days .dayInput.clickable:hover,
+.calendar-days .hourInput.clickable:hover{
+	background-color:var(--color-input);
+	filter:brightness(90%);
+}
+
+/* month view */
+.calendar-month{
+	flex:1 1 auto;
+	min-width:300px; /* for usable calender input */
+	display:flex;
+	flex-flow:column nowrap;
+	border-radius:3px;
+	overflow:auto;
+}
+.calendar-month.scroll{
+	overflow:auto;
+}
+.calendar-month .data{
+	display:flex;
+	flex-flow:row nowrap;
+}
+.calendar-month .days{
+	flex:0 1 38px;
+	line-height:38px;
+	box-sizing:border-box;
+	position:sticky;
+	top:0px;
+	display:flex;
+	flex-direction:row;
+	background-color:var(--color-bg);
+	border-bottom:1px solid var(--color-border);
+	z-index:var(--z-index-calendar-month-header);
+}
+.calendar-month .days .item{
+	padding:0px 8px;
+	flex:1 1 0px;
+}
+.calendar-month .week{
+	flex:1 1 auto;
+	display:flex;
+	border-bottom:1px solid var(--color-border);
+	flex-direction:row;
+}
+.calendar-month .day{
+	min-height:50px;
+	width:calc(100%/7);
+	display:flex;
+	flex-direction:column;
+	background-color:var(--color-input);
+	border-right:1px solid var(--color-border);
+}
+.calendar-month .day:last-child{
+	border-right:none;
+}
+.calendar-month .day.weekend{
+	background-color:var(--color-accent2);
+}
+.calendar-month .day.outside{
+	background-color:var(--color-cal-outside);
+}
+.calendar-month .day.selected{
+	filter:brightness(80%);
+}
+.calendar-month .day.clickable:hover{
+	filter:brightness(90%);
+}
+.calendar-month .day h1{
+	margin:6px 8px;
+	font-size:110%;
+	color:var(--color-font);
+}
+.calendar-month .day.today h1{
+	color:var(--color-font);
+}
+.calendar-month .day.today h1::before{
+	content:"[";
+}
+.calendar-month .day.today h1::after{
+	content:"]";
+}
+
+/* full day event */
+.calendar-month .day .event{
+	height:26px;
+	margin:2px 0px;
+	padding-left:8px;
+	display:flex;
+	flex-flow:row nowrap;
+	align-items:center;
+	box-shadow:1px 1px 1px var(--color-shade);
+	background-color:var(--color-cal-day-event);
+	position:relative;
+}
+.calendar-month .day .event.first{
+	margin-left:5px;
+	border-radius:5px 0px 0px 5px;
+}
+.calendar-month .day .event.last{
+	margin-right:5px;
+	border-radius:0px 5px 5px 0px;
+}
+.calendar-month .day .event.placeholder{
+	box-shadow:none;
+	background-color:transparent;
+}
+.calendar-month .day .event .values-wrap{
+	position:absolute;
+	left:7px;
+	z-index:var(--z-index-calendar-days-full-values);
+}
+.calendar-month .day .event .values{
+	display:flex;
+	flex-flow:row nowrap;
+	align-items:center;
+	gap:6px;
+	white-space:nowrap;
+}
+.calendar-month .day .event .values:hover span{
+	font-weight:bold;
+}
+.calendar-month .day .event:hover .text{
+	max-width:unset !important;
+	font-weight:bold;
+}
+
+/* partial day event */
+.calendar-month .day .part{
+	display:flex;
+	flex-flow:row wrap;
+	align-items:center;
+	line-height:18px;
+	padding:2px 4px;
+	margin:0px 2px;
+	border-bottom:1px dotted var(--color-border);
+}
+.calendar-month .day .part:hover>span{
+	font-weight:bold;
+}
+.calendar-month .day .part>span{
+	padding:0px 5px;
+	margin-right:4px;
+	border-radius:4px;
+	background-color:var(--color-cal-day-event);
+}
+
+
+/* user overwrites */
+.user-bordersSquared .calendar,
+.user-bordersSquared .calendar-days .event{
+	border-radius:0px !important;
+}

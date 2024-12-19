@@ -1,0 +1,366 @@
+.field{
+	flex:1 1 auto;
+	display:flex;
+	flex-flow:column nowrap;
+}
+.field.container{
+	display:flex;
+	flex-flow:column wrap;
+	margin:0px !important;
+}
+.field.container.row{
+	flex-direction:row;
+}
+.field.hidden{
+	display:none;
+}
+.field.noGrow{
+	flex-grow:0;
+}
+.field-caption{
+	display:flex;
+	flex-flow:row nowrap;
+	align-items:center;
+	margin:1px 0px 3px 4px;
+	font-size:90%;
+	font-weight:550;
+	color:var(--color-font);
+	flex:0 0 auto;
+	cursor:default;
+}
+.field-caption img{
+	height:16px;
+	margin:0px 6px 0px 0px;
+	filter:var(--image-filter);
+}
+.field-content{
+	flex:1 1 auto;
+	min-height:var(--row-height);
+	margin:0px;
+	display:flex;
+	flex-flow:row nowrap;
+	align-items:stretch;
+	gap:8px;
+	border-radius:5px;
+	background-color:var(--color-input);
+	box-shadow:var(--shadow-input);
+	box-sizing:border-box;
+	overflow:visible;
+}
+.field-content.data:focus-within:not(.disabled){
+	transition:box-shadow 0.3s, outline 0.2s;
+	outline:2px solid var(--color-accent1);
+	box-shadow:1px 1px 8px var(--color-shade-input-sel);
+}
+.field-content.data.disabled{
+	color:var(--color-font-disabled);
+	background-color:var(--color-input-disabled);
+}
+.field-content.intent{
+	padding-left:8px;
+}
+.field-content.isSingleField{
+	border:none;
+	box-shadow:none;
+	border-radius:0px;
+}
+.field-content .input.textarea{
+	padding:0px 0px 0px 8px;
+}
+.field-content>.input.textarea{
+	padding-left:8px;
+}
+.field-content>.button,
+.field-content>.bool{
+	align-self:center;
+}
+.field.dropdown .field-content{
+	position:relative;
+}
+
+
+.field .field-icon{
+	padding:0px 8px 0px 0px;
+	align-self:center;
+	display:flex;
+	flex-flow:row nowrap;
+	align-items:center;
+	border-right:1px solid var(--color-border);
+}
+.field .field-icon img{
+	height:24px;
+	filter:var(--image-filter);
+}
+.field .field-icon.inList{
+	margin-right:8px;
+}
+.field.top-aligned .field-content{
+	padding:5px 0px 3px;
+}
+.field.top-aligned .field-icon{
+	align-self:flex-start;
+}
+.field .disabled .caption{
+	color:var(--color-font);
+}
+.field .captionSub{
+	margin:3px 0px 0px 6px;
+	font-size:80%;
+	cursor:default;
+}
+
+/* label field */
+.field .header-label{
+	display:flex;
+	flex-flow:column nowrap;
+}
+.field .header-label .heading{
+	display:flex;
+	flex-flow:row nowrap;
+	align-items:center;
+	gap:9px;
+	margin:6px 0px 0px 0px;
+}
+.field .header-label .heading img{
+	filter:var(--image-filter);
+}
+.field .header-label .heading.size1{ font-size:160%; }
+.field .header-label .heading.size2{ font-size:140%; }
+.field .header-label .heading.size3{ font-size:120%; }
+.field .header-label .heading.size1 img{ height:32px; }
+.field .header-label .heading.size2 img{ height:28px; }
+.field .header-label .heading.size3 img{ height:24px; }
+.field .header-label .richtext{
+	flex:1 1 auto;
+	overflow:auto;
+}
+
+
+.field .invalid,
+.field .invalid::placeholder{
+	/* necessary for chrome */
+	color:var(--color-error) !important;
+}
+
+/* input field */
+.field .input{
+	width:0px; /* base width, required for inputs < 100px */
+	max-width:100%;
+	min-height:28px;
+	line-height:28px;
+	margin-right:6px;
+	padding:0px;
+	font-size:inherit;
+	font-family:inherit;
+	background-color:transparent;
+	border:none;
+	box-sizing:border-box;
+	flex:1 0 auto;
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	outline:none;
+	color:var(--color-font);
+}
+.field .input::placeholder{
+	color:var(--color-font-disabled);
+	opacity:1; /* standardize across browsers */
+}
+.field .input:disabled{
+	color:inherit; /* readonly state is represented by field background */
+}
+.field .input .list{
+	margin:0px;
+	border:none;
+	overflow:visible;
+}
+.field .input.textarea{
+	font-size:inherit;
+	font-family:inherit;
+	resize:vertical;
+}
+.field .color-input{
+	display:flex;
+	flex-flow:row nowrap;
+	padding:0px 8px 0px 0px;
+	align-items:stretch;
+	flex:1 1 auto;
+}
+.field .color-input input{
+	flex:1 1 auto;
+}
+.field .color-input .preview{
+	flex:0 1 50px;
+	height:20px;
+	border:1px solid var(--color-border);
+	border-radius:9px;
+	align-self:center;
+}
+
+/* slider input */
+.field .slider-input{
+	display:flex;
+	flex-direction:row;
+	align-items:center;
+	flex:1 1 auto;
+	overflow:hidden;
+}
+.field .slider-input input.range{
+	width:100%; /* otherwise does not shrink properly */
+	flex:1 2 auto;
+	margin:12px 12px 12px 0px;
+	
+	-webkit-appearance:none;
+	appearance:none;
+	height:8px;
+	outline:none;
+	background:#a9a5a5;
+	cursor:pointer;
+	border-radius:5px;
+}
+.field .slider-input .range::-moz-range-thumb,
+.field .slider-input .range::-webkit-slider-thumb{
+	-webkit-appearance:none;
+	appearance:none;
+	width:11px;
+	height:20px;
+	background:var(--color-accent1);
+	cursor:pointer;
+	border:none;
+	border-radius:5px;
+	margin:0px;
+}
+.field .slider-input .value{
+	flex:0 1 auto;
+	max-width:60px;
+	padding:2px 6px;
+	margin:0px 8px 0px 0px;
+	border-radius:5px;
+	text-align:center;
+	color:var(--color-font);
+	background-color:var(--color-input);
+}
+
+/* richtext field */
+.field.richtext{
+	min-height:200px;
+}
+.field.richtext .field-content{
+	margin:0px;
+}
+
+/* iframe field */
+.field.iframe{
+	min-height:200px;
+}
+.field.iframe .field-content{
+	padding:0px;
+}
+
+/* header field with richtext */
+.field.headerRichtext{
+	overflow:auto;
+}
+
+/* chart field */
+.field .chart{
+	flex:1 1 auto;
+	display:flex;
+	flex-flow:column nowrap;
+	background-color:var(--color-input);
+	border-radius:3px;
+	box-shadow:1px 1px 4px var(--color-shade);
+}
+.field .chart .actions{
+	flex:0 0 auto;
+}
+
+/* tabs field */
+.field .tabs{
+	flex:1 1 auto;
+	display:flex;
+	flex-flow:column nowrap;
+	border-radius:5px;
+	overflow:auto;
+}
+.field .tabs.isSingleField{
+	border-radius:0px;
+}
+.field .tabs-entries{
+	display:flex;
+	flex-flow:row wrap;
+	background-color:var(--color-bg);
+}
+.field .tabs-entries select{
+	flex:1 1 auto;
+	padding:8px;
+	font-size:110%;
+	color:var(--color-font);
+	background-color:transparent;
+	border:none;
+	outline:none;
+}
+.field .tabs-entries option{
+	color:var(--color-font);
+	background-color:var(--color-bg);
+}
+.field .tabs-icon{
+	margin-right:5px;
+	display:flex;
+}
+.field .tabs-icon img{
+	height:22px;
+	margin:0px 2px 0px 7px;
+	align-self:center;
+	display:flex;
+	filter:var(--image-filter);
+}
+.field .tabs-entry{
+	line-height:36px;
+	padding:0px 9px;
+	margin-left:-1px;
+	border:1px solid var(--color-border);
+	border-top:none;
+	border-bottom:none;
+	box-sizing:border-box;
+	background-color:var(--color-bg);
+	font-size:85%;
+}
+.field .tabs-entry.active{
+	margin-bottom:-1px;
+	font-size:110%;
+	z-index:var(--z-index-tab-active);
+}
+.field .tabs-entry.error{
+	color:var(--color-error);
+}
+.field .tabs-entry.active.inputBg{
+	background-color:var(--color-input);
+}
+.field .tabs-entry.active.inputBg.readonly{
+	background-color:var(--color-input-disabled);
+}
+.field .tabs>.fields{
+	flex:1 1 auto;
+	border-top:1px solid var(--color-border);
+	background-color:var(--color-bg);
+}
+.field .tabs.isSingleField .tabs-entry{
+	margin-top:4px;
+	border-top:1px solid var(--color-border);
+}
+.field .tabs.isSingleField .tabs-entry.active{
+	margin-top:2px;
+	border-top:2px solid var(--color-border);
+}
+
+/* user overwrites */
+.user-bordersAll .field-content:not(.isSingleField){
+	border:1px solid var(--color-border);
+}
+.user-bordersSquared .field-content,
+.user-bordersSquared .field .color-input .preview,
+.user-bordersSquared .field .slider input,
+.user-bordersSquared .field .slider .slider-value{
+	border-radius:0px;
+}

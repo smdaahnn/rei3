@@ -1,0 +1,180 @@
+.gantt{
+	flex:1 1 auto;
+	display:flex;
+	flex-flow:column nowrap;
+    border-radius:5px;
+	box-shadow:1px 1px 4px var(--color-shade);
+    overflow:auto;
+}
+.gantt.isSingleField{
+	border-radius:0px;
+}
+.gantt input.zoom-factor{
+	width:80px !important;
+}
+.gantt .date-range-label{
+	font-size:110%;
+}
+.gantt .nothing-there{
+	padding:12px;
+	text-align:center;
+	font-size:110%;
+	font-style:italic;
+}
+
+/* left side bar, showing all labels for each line */
+.gantt-labels{
+	flex:0 0 180px; /* base size is important to calculate Gantt content width */
+	display:flex;
+	flex-flow:column nowrap;
+	border-right:1px solid var(--color-border);
+	background-color:var(--color-bg);
+}
+.gantt-label-entry{
+	flex:0 0 auto;
+	height:30px;
+	line-height:30px;
+	display:flex;
+	flex-flow:row nowrap;
+	gap:6px;
+	box-sizing:border-box;
+	border-bottom:1px solid var(--color-border);
+}
+.gantt-label-entry:first-child{
+	height:60px; /* double line height */
+}
+.gantt-group{
+	background-color:var(--color-input);
+}
+
+
+/* main content, showing header + all lines */
+.gantt-content{
+	flex: 1 1 auto;
+	display:flex;
+	flex-flow:row nowrap;
+	overflow:auto;
+}
+.gantt-content .form-wrap.popUp{
+	flex:1 1 auto;
+	width:100%;
+}
+.gantt-data{
+	flex: 1 1 auto;
+	display:flex;
+	flex-flow:row nowrap;
+	overflow:auto;
+}
+
+/* headers */
+.gantt-headers{
+	flex:0 0 auto;
+	height:60px;
+	position:relative;
+	background-color:var(--color-bg);
+}
+.gantt-header{
+	height:30px;
+	position:absolute;
+	top:0px;
+	display:flex;
+	flex-flow:row nowrap;
+	box-sizing:border-box;
+	border-bottom:1px solid var(--color-border);
+}
+.gantt-header.lower{
+	top:30px;
+	border-bottom:1px solid var(--color-border);
+}
+.gantt-header-item{
+	height:30px;
+	line-height:30px;
+	padding:0px 6px;
+	flex:0 0 auto;
+	overflow:hidden;
+	box-sizing:border-box;
+	border-right:1px solid var(--color-border);
+}
+.gantt-header-item.clickable{
+	background-color:var(--color-bg);
+}
+.gantt-header-item.clickable.selected{
+	filter:brightness(80%);
+}
+.gantt-header-item.clickable:hover{
+	filter:brightness(90%);
+}
+.gantt-header-item.lower{
+	text-align:center;
+	padding:0px;
+	border-bottom:1px solid var(--color-border);
+}
+.gantt-header-item.today{
+	font-weight:bold;
+}
+.gantt-header-item.weekend{
+	background-color:var(--color-accent2);
+}
+
+/* lines */
+.gantt-lines{
+	flex:1 1 auto;
+	display:flex;
+	flex-flow:column nowrap;
+}
+.gantt-line{
+	height:30px;
+	line-height:30px;
+	position:relative;
+	box-sizing:border-box;
+	background-position:-1px 0px;
+	background-image:linear-gradient(to right,var(--color-border) 1px, transparent 0px);
+}
+.gantt-line.show-line{
+	border-bottom:1px solid var(--color-border);
+}
+.gantt-line-record{
+	top:2px;
+	height:26px;
+	white-space:nowrap;
+	position:absolute;
+}
+.gantt-line-record:hover{
+	max-width:unset !important;
+	z-index:var(--z-index-gantt-hover);
+	overflow:visible;
+}
+.gantt-line-record .record-values{
+	height:100%;
+	gap:6px;
+	overflow:hidden;
+	position:relative;
+	padding:0px 3px;
+	box-sizing:border-box;
+	box-shadow:1px 1px 1px var(--color-shade);
+	background-color:var(--color-cal-day-event);
+	display:flex;
+	flex-flow:row nowrap;
+	align-items:center;
+	z-index:var(--z-index-calendar-month-caption);
+}
+.gantt-line-record .record-values.start{
+	margin-left:1px;
+	border-top-left-radius:7px;
+	border-bottom-left-radius:7px;
+}
+.gantt-line-record .record-values.end{
+	margin-right:3px;
+	border-top-right-radius:7px;
+	border-bottom-right-radius:7px;
+}
+.gantt-line-record .record-values:hover{
+	color:var(--color-font-bright) !important;
+	background-color:rgba(0,0,0,0.7) !important;
+}
+
+
+/* user overwrites */
+.user-bordersSquared .gantt{
+	border-radius:0px !important;
+}

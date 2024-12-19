@@ -1,0 +1,30 @@
+{
+	"cluster": {
+		"nodeId": "9849db71-3479-4f2b-8c97-3e23e7ce6199"
+	},
+	"db": {
+		"host": "localhost",
+		"port": 5432,
+		"name": "fwdo-db",
+		"user": "postgres",
+		"pass": "feuerwehr2024",
+		"embedded": false,
+		"ssl": false,
+		"sslSkipVerify": true
+	},
+	"paths": {
+		"certificates": "data/certificates/",
+		"embeddedDbBin": "pgsql16/bin/",
+		"embeddedDbData": "data/database/",
+		"files": "data/files/",
+		"temp": "data/temp/",
+		"transfer": "data/transfer"
+	},
+	"portable": false,
+	"web": {
+		"cert": "cert.crt",
+		"key": "cert.key",
+		"listen": "0.0.0.0",
+		"port": 443
+	}
+}

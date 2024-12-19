@@ -1,0 +1,119 @@
+.button{
+	height:30px;
+	margin:0px;
+	padding:4px calc(var(--spacing) / 1.5);
+	font-size:inherit;
+	color:var(--color-font-bright);
+	display:flex;
+	flex-flow:row nowrap;
+	gap:calc(var(--spacing) / 2);
+	align-items:center;
+	float:left;
+	outline:none;
+	background-color:var(--color-action);
+	box-sizing:border-box;
+	box-shadow:1px 1px 3px var(--color-shade);
+	border-radius:4px;
+	transition:height 0.1s, margin 0.1s, padding 0.1s, box-shadow 0.1s, border-bottom 0.1s, filter 0.1s;
+}
+.button.adjusts{
+	flex:1 0 auto;
+}
+.button.cancel{
+	background-color:var(--color-cancel);
+}
+.button.naked{
+	padding:4px 6px;
+	color:inherit;
+	background-color:transparent;
+	box-shadow:unset;
+}
+
+/* regular button styles */
+.button.inactive:not(.naked){
+	background-color:var(--color-action-disable);  
+	/*background-color:var(--color-action-enable);   FWDO*/
+}
+.button:focus:not(.naked):not(.inactive),
+.button:hover:not(.naked):not(.inactive){
+	filter:brightness(120%);
+	box-shadow:1px 2px 6px var(--color-shade);
+	border-bottom:2px solid var(--color-bright);
+}
+.button:active:hover:not(.naked):not(.inactive){
+	height:28px;
+	margin:1px 2px;
+	padding:3px calc((var(--spacing) / 1.5) - 2px);
+	box-shadow:1px 1px 3px var(--color-shade);
+	filter:brightness(90%);
+}
+.button.large:active:hover:not(.naked):not(.inactive){
+	height:38px;
+}
+
+/* naked button styles */
+.button.naked.inactive{
+	color:var(--color-font-disabled);
+}
+.button.naked:focus:not(.inactive),
+.button.naked:hover:not(.inactive){
+	text-decoration:underline;
+}
+
+/* button content */
+.button span{
+	white-space:nowrap;
+}
+.button.adjusts span{
+	flex:1 0 auto;
+	width:10px;
+	min-width:0px;
+	text-overflow:ellipsis;
+	white-space:nowrap;
+	overflow:hidden;
+}
+.button img{
+	width:20px;
+	height:20px;
+	filter:var(--image-filter-bg);
+	transition:height 0.2s, width 0.2s, margin 0.2s;
+}
+.button.naked img{
+	filter:var(--image-filter);
+}
+.button.naked.inactive img{
+	filter:var(--image-filter-alt);
+}
+.button.naked:focus:not(.inactive) img,
+.button.naked:hover:not(.inactive) img{
+	width:24px;
+	height:24px;
+	margin-left:-2px;
+	margin-right:-2px;
+}
+.button.naked:active:not(.inactive) img{
+	width:22px;
+	height:22px;
+	margin-left:-1px;
+	margin-right:-1px;
+}
+.button .alt{
+	display:flex;
+	flex-flow:row nowrap;
+	align-items:center;
+	padding-left:calc(var(--spacing) / 2);
+	gap:calc(var(--spacing) / 2);
+	border-left:2px solid var(--color-bright);
+}
+
+
+/* layout overwrites */
+.button.large{
+	height:40px;
+	font-size:120%;
+}
+
+/* user overwrites */
+.user-dark .button.background.inactive{
+	filter:grayscale(100%) brightness(85%);
+}
